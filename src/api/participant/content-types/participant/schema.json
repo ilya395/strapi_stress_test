@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "participants",
+  "info": {
+    "singularName": "participant",
+    "pluralName": "participants",
+    "displayName": "Participant",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "phone": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
+    },
+    "nickName": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "unique": true
+    },
+    "participants_group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::participants-group.participants-group",
+      "inversedBy": "participants"
+    },
+    "deposits": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::deposit.deposit",
+      "mappedBy": "participant"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

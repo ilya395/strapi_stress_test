@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paylists",
+  "info": {
+    "singularName": "paylist",
+    "pluralName": "paylists",
+    "displayName": "Paylist"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "participants_group": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::participants-group.participants-group"
+    },
+    "deposits": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::deposit.deposit",
+      "mappedBy": "paylist"
+    },
+    "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    }
+  }
+}
